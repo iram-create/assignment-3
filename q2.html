@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <script>
+        function fetchPosts(){
+            return axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then(response=>
+           { const posts= response.data;
+            console.log(posts)
+            const filterPosts= posts.filter(post=>post.title);
+        let sorted= filterPosts.sort((a,b)=>a.id-b.id);
+        return sorted;
+
+           }
+
+
+
+        )
+        }
+        fetchPosts().then(posts=>{console.log("posts are;",posts)})
+        .catch(error=>{console.error("error;",error)});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        // const fetchPosts=async()=>{
+        //   let promise=await axios.get('https://jsonplaceholder.typicode.com/posts');
+        //  let save= promise.data
+        //  let posts= save.filter(post=>post.title)
+        // let sorted= posts.sort((a,b)=>a.id-b.id);
+        // return sorted;
+        
+        
+        // }
+        // fetchPosts();
+   
+      
+    </script>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    
+</body>
+</html>
